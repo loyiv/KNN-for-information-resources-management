@@ -24,7 +24,7 @@
 ---
 
 ## 📊 数据集介绍
-
+![MNIST](image/MNIST.png)
 - **名称**：MNIST（Modified National Institute of Standards and Technology）  
 - **规模**：共 70,000 张 28×28 的灰度手写数字图片  
   - 训练集：60,000 张  
@@ -33,7 +33,7 @@
 - **数据格式**：每张图片展开为 784 维向量；像素值范围 0–255，可归一化到 [0,1]
 
 > 数据来源：[Yann LeCun 官方 MNIST 页面](http://yann.lecun.com/exdb/mnist/)  
-> 或 [Kaggle: Digit Recognizer (MNIST in CSV)](https://www.kaggle.com/competitions/digit-recognizer)
+
 
 ---
 
