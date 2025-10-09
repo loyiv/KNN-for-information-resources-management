@@ -42,22 +42,28 @@
 **K 近邻算法（KNN）** 的主要思想：
 
 1. **计算距离**  
-   对于输入样本 \( x \)，计算它与训练集中所有样本 \( x_i \) 的欧氏距离  
-   $$
-   d(x, x_i) = \sqrt{\sum_{j=1}^{784}(x_j - x_{ij})^2}
-   $$
-2. **选取最近的 K 个邻居**  
-   取出距离最小的 K 个样本组成集合 \( \mathcal{N}_K(x) \)。
+对输入样本 $x$，计算它与训练集中所有样本 $x_i$ 的欧氏距离：
+
+$$
+d(x, x_i) = \sqrt{\sum_{j=1}^{784} (x_j - x_{ij})^2}
+$$
+
+2. **选取最近的 $K$ 个邻居**  
+取出距离最小的 $K$ 个样本组成集合 $\mathcal{N}_K(x)$。
+
 3. **投票决策**  
-   统计各类别出现次数，选择出现最多的类别作为预测输出：  
-   $$
-   \hat{y}(x) = \arg\max_j \sum_{x_i\in\mathcal{N}_K(x)} \mathbf{1}\{y_i=j\}
-   $$
+统计各类别出现次数，选择出现最多的类别作为预测输出：
+
+$$
+\hat{y}(x) = \arg\max_j \sum_{x_i\in\mathcal{N}_K(x)} \mathbf{1}\{y_i=j\}
+$$
+
 4. **（可选）距离加权**  
-   也可按距离反比赋权，使离得更近的样本权重更大：  
-   $$
-   w_i = \frac{1}{d(x,x_i)+\varepsilon}
-   $$
+也可按距离反比赋权，使离得更近的样本权重更大：
+
+$$
+w_i = \frac{1}{d(x,x_i)+\varepsilon}
+$$
 
 > 实现使用 scikit-learn 中的 `KNeighborsClassifier`：  
 > 默认距离为 Minkowski (p=2)，即欧氏距离；支持 `weights="uniform"` 或 `weights="distance"`。
